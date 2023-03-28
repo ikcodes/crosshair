@@ -4,8 +4,6 @@ A Keystone.js-built marketing site for Crosshair Music.
 
 KeystoneJS Docs: https://v4.keystonejs.com/documentation/
 
-This site uses **_VERSION 4_**. V5 saw major changes so be sure to work in accordance with V4.
-
 This site is built in MVC architecture. Models pull data from Mongo in JSON and use routes/views
 to populate the frontend. Uses Gulp. 
 
