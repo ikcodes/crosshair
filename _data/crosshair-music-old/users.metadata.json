@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"crosshair-music.users"},{"v":2,"unique":true,"key":{"email":1},"name":"email_1","background":true,"ns":"crosshair-music.users"},{"v":2,"key":{"isAdmin":1},"name":"isAdmin_1","background":true,"ns":"crosshair-music.users"}],"uuid":"b9618275c821428cb52c265d07a9c4b5"}
