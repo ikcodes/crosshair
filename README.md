@@ -18,12 +18,13 @@ to populate the frontend. Uses Gulp.
   -> Keystone.js
 - MongoDB
 
-### Dev process
+### CMS
 
-Unfortunately, this site was built in 2018, which means the versions of gulp, keystone, etc. are all woefully out-of-date. You may encounter compatability issues trying to install it five years after it was built...
+The use case for Keystone centers around the CMS, accessible at a private URL. This populates custom blocks of content, as well as various diagrams, videos, etc. around the site. This keeps developer maintenance to a minimum and skyrockets the speed and flexibility of layman-level updates.
 
-### Notes on Keystone.js:
+### Other notes on Keystone.js
 
+- This site uses **_VERSION 4_**. V5 saw major changes so be sure to work in accordance with V4.
 - Dev only possible with network connection.
 - CMS'd images are sourced REMOTELY w/ Cloudinary
 - To add something to the CMS, simply register and edit the data model in /models
