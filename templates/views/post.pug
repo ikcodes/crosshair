@@ -1,0 +1,28 @@
+extends ../layouts/default
+include ../mixins/contact-form
+
+block content
+	.white-bg.tb-pad-30: .grid-container: .grid-x: .cell.medium-10.large-8.post
+		article
+			if !data.post
+				h2 Invalid Post.
+			else
+				header
+					h1= data.post.title
+					h5 Posted 
+						if data.post.publishedDate
+							| &nbsp;on #{data.post._.publishedDate.format('MMMM Do, YYYY')}
+						if data.post.author
+							| &nbsp;by #{data.post.author.name.first}
+				.post
+					if data.post.image.exists
+						.image-wrap: img(src=data.post._.image.fit(750,450)).img-responsive
+					.tb-pad-30
+						// Post Content (full)
+						!= data.post.content.full
+		.b-pad-15
+			a.button(href='/blog') &larr;&nbsp; back to the blog
+			
+	.black-bg
+		+contact-form
+		

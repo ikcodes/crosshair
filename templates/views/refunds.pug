@@ -1,0 +1,12 @@
+extends ../layouts/default
+
+block content
+	.white-bg: .grid-container: .grid-x.align-center.tb-pad-90: .cell.medium-10.large-8
+		h1.match=RefundPolicy[0].title
+			hr
+		!= RefundPolicy[0].policy
+		//- p.green.t-marg-30="Updated on "+RefundPolicy[0].updated
+		p.t-marg-30 For any questions regarding our refund policy, please email 
+			a.green.underline(href="mailto:hello@crosshairmusic.com") hello@crosshairmusic.com
+			| .
+			

@@ -1,0 +1,15 @@
+extends ../layouts/default
+include ../mixins/contact-form
+	- var returnPage = 'artists';
+
+block content
+	#home
+		.hero
+			.grid-x.align-center#buttonRow
+				.cell.medium-6
+					p.text-center
+						a.button(href="/artists") Artists
+				.cell.medium-6
+					p.text-center
+						a.button(href="/influencers") Influencers
+	+contact-form(returnPage)

@@ -1,0 +1,149 @@
+extends ../layouts/default
+include ../mixins/contact-form
+
+block content
+	#influencers
+		.hero
+			.hero-overlay
+				//- Wrap the h1 in the container, but the button has none.
+				.hero-text
+					h1 Earn through influence.
+				a.button.hero-button(href="/influencer-registration") Create an Account
+		
+		//============
+		// THE MISSION
+		//============
+		.black-bg.t-pad-120.b-pad-60
+			.grid-container
+				.grid-x.align-center
+					.cell.medium-11.large-9
+						h4.normal.text-center On the Crosshair Music platform, playlist curators and content creators get paid to listen to new music, review songs, and keep their playlists fresh with new tracks. 
+						p.text-center.tb-pad-30.no-marg
+							a.button.bigger.no-marg(href="/influencer-registration") Apply Here
+							
+		//========================
+		// INFLUENCER REQUIREMENTS					
+		//========================
+		.white-bg.tb-pad-120
+			.grid-container
+				.grid-x.align-center
+					.cell
+						h2.text-center Influencer Requirements
+						p.text-center Influencers who meet these standards are integral to Crosshair.
+						
+				.grid-x.align-center.tb-pad-40.text-center
+					.cell.large-3.medium-6
+						//- img(src="/influencers/requirement-1.png")
+						img(src="/images/gif/animat-responsive-color.gif")
+						h1#countup1(data-number="500")
+						p Playlist followers or Invite Only
+						
+					.cell.large-3.medium-6
+						//- img(src="/influencers/requirement-2.png")
+						img(src="/images/gif/animat-linechart-color.gif")
+						h1#countup2(data-number="2500")
+						p Minimum Required Followers
+						
+					.cell.large-3.medium-6
+						//- img(src="/influencers/requirement-3.png")
+						img(src="/images/gif/animat-diamond-color.gif")
+						h1#countup3(data-number="1000")
+						p Minimum Twitter Followers
+						
+					.cell.large-3.medium-6
+						img(src="/images/gif/animat-customize-color.gif")
+						h1#countup4(data-number="1000")
+						//- img(src="/influencers/requirement-4.png")
+						p Requirement Minimum Channel Subscribers
+
+		//========================
+		// CROSSHAIR ELITE PROGRAM
+		//========================
+		#influencersParallax.parallax
+			.parallax-overlay
+				.grid-x.align-center
+					.cell.large-8.medium-8
+						h1.text-center Crosshair Elite Program
+						hr.green
+						//- Elite Main CMS block
+						#eliteMain.t-pad-15
+							p A rewards program where 20 of the most engaged influencers will receive special perks as a thank you for their engagement with our artists! These influencers have been selected because they are the most involved, the most passionate about working with musicians and the most excited about promoting undiscovered music.
+							
+							ul
+								li 3x the current influencer pay rate.
+								li Perks from Crosshair artists (tickets, merchandise, swag, etc).
+								li Support in growing your playlist or channel.
+								li Unique affiliate links to earn revenue share from Crosshair campaigns.
+								li Social media shout-outs from us and our partners.
+						
+						.tb-pad-15
+							p.no-marg.text-center: a.button.no-marg(href="/influencer-registration") MORE DETAILS
+						
+						//- Elite Add'l CMS block
+						#eliteAdditional.tb.pad-15
+						p ADDITIONAL INFLUENCER INFORMATION
+						p Crosshair Music has the right to refuse or reject influencers as we see fit for our service. Minimum follower requirements are a guideline and final decision is made at the discretion of our influencer team. For more information please email [email protected]
+
+		//================
+		// INFLUENCER FAQs
+		//================
+		.black-bg.tb-pad-90
+			.grid-container
+				.grid-x.align-center
+					.cell.small-8.medium-7.large-5
+						h2.text-center.nunito Influencer
+							| <span class="green">&nbsp;FAQs</span>
+						hr.short.green
+				.grid-x.align-center
+					.cell.medium-10.large-9
+						+faqs
+
+		//=================
+		// INFLUENCER VIDEO
+		//=================
+		#influencerVideoBG(data-equalizer)
+		#influencerVideo.tb-pad-90(data-equalizer)
+			.grid-container
+				.grid-x.align-center
+					.cell.small-12.lift.b-pad-15
+						h2.white.text-center.nunito The&nbsp;
+							| <span class="green">Platform</span>
+						hr.short.green
+				.grid-x.align-center
+					.cell.large-8
+						.responsive-embed
+							//- VIDEO ID COMES FROM CMS!
+							iframe(width="" height="" src="https://www.youtube.com/embed/"+video_id[0].videoId frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen).tb-pad-30
+		.black-bg.t-pad-15
+			+contact-form
+
+block footer_js
+	script(src="/js/plugins/countup.min.js" type="text/javascript")
+	script.
+		$(function(){
+			// Instantiate countUp for influencer stats
+			
+			var options = {
+				useEasing: true,
+				useGrouping: true,
+				separator: ',',
+			};
+			
+			// Params: [target id (no jQuery selector!!), startVal, endVal, decimals, duration (s), options]
+			var countup1Val = $("#countup1").attr('data-number');
+			var countup1 = new CountUp('countup1', 0, countup1Val, 0, 2.0, options);
+			if(!countup1.error){	countup1.start();	}else{	console.error(countup1.error);	}
+			
+			var countup2Val = $("#countup2").attr('data-number');
+			var countup2 = new CountUp('countup2', 0, countup2Val, 0, 2.0, options);
+			if(!countup2.error){	countup2.start();	}else{	console.error(countup2.error);	}
+			
+			var countup3Val = $("#countup3").attr('data-number');
+			var countup3 = new CountUp('countup3', 0, countup3Val, 0, 2.0, options);
+			if(!countup3.error){	countup3.start();	}else{	console.error(countup3.error);	}
+			
+			var countup4Val = $("#countup4").attr('data-number');
+			var countup4 = new CountUp('countup4', 0, countup4Val, 0, 2.0, options);
+			if(!countup4.error){	countup4.start();	}else{	console.error(countup4.error);	}
+			
+		});

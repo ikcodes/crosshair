@@ -1,0 +1,39 @@
+mixin post-preview(post)
+
+	//=========================
+	// BEGIN POST PREVIEW MIXIN
+	//=========================
+	
+	.post-preview(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
+	
+		if post.image.exists
+			.preview-header(style="background-image: url("+post.image.secure_url+")")
+		else
+			// Uses default bg image
+			.preview-header
+		
+		.preview-text
+			h2
+				a(href='/blog/post/' + post.slug)= post.title
+			
+			// Posted text
+			p.posted Posted 
+				if post.publishedDate
+					| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
+				if post.categories && post.categories.length
+					| in 
+					each cat, i in post.categories
+						a(href='/blog/' + cat.key)= cat.name
+						if i < post.categories.length - 1
+							| , 
+						else
+							|  
+				if post.author
+					| by #{post.author.name.first}
+			
+			// Read More
+			.post-content
+				p!= post.content.brief
+			if post.content.extended
+				p
+					a.button(href='/blog/post/' + post.slug) Read More &nbsp;&rarr;

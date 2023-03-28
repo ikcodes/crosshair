@@ -1,0 +1,54 @@
+include ./head.pug
+include ./footer.pug
+include ../mixins/faqs.pug
+
+doctype html
+html
+	head
+		+head
+		block css
+		block head
+
+	body
+		header#header
+			.grid-x
+				nav#nav(role="navigation")
+					#navClip1
+					#navClip2
+					#navClip3
+					a(href="/"): img(src="/images/navLogo.png")#navLogo
+					ul
+						a(href="/artists")
+							li Artists
+						a(href="/influencers")
+							li Influencers
+						a(href="/blog")
+							li Blog
+						a
+							li#openLoginDropdown Login
+								.login-dropdown
+									a(href="http://my.crosshairmusic.com/client/login" target="_blank")
+										p Artist
+									a(href="http://my.crosshairmusic.com/influencer/login" target="_blank")
+										p.no-marg Influencer
+									
+			img#navFlip(src="/images/nav-flip.png")
+			
+		#body
+			//- Pug templates start here
+			block content
+		//- FOOTER
+		+footer
+		
+		script(src="//code.tidio.co/b7uadeapo8mh0rnqfgxbykhewt39nrxe.js")
+		script(src='/js/plugins/jquery.min.js')
+		script(src='/js/plugins/foundation.min.js')
+		script(src='/js/plugins/foundation.min.js')
+		script(src='/js/plugins/slick/slick.min.js')
+		script(src="/js/plugins/scrollTo.min.js")
+		script(src='/js/app.js')
+
+		if user && user.canAccessKeystone
+			script(src='/keystone/js/content/editor.js')
+			
+		block footer_js

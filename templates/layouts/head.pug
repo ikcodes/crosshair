@@ -1,0 +1,70 @@
+mixin head
+
+  // CORE METAS
+  meta(charset="utf-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  
+  // ---------
+  // SEO BLOCK
+  // ---------
+  if seo
+    // CMS SEO
+    //- Loop SEO entries. Note the only unique tag syntax is "<title>", rest are "<meta name='...'>"
+    - var title_tag = 'title'
+    each seo_entry in seo
+      if seo_entry['title'] == title_tag
+        title=seo_entry['content']
+      else
+        meta(name=seo_entry['title'] content=seo_entry['content'])
+    // END CMS SEO 
+  
+  meta(property="og:locale" content="en_US")
+  meta(property="og:type" content="webiste")
+  meta(property="og:title" content="Crosshair Music - Find Undiscovered Music to Hear and Use")
+  meta(property="og:description" content="Crosshair music influencers find undiscovered music to hear and use in original content. They feature undiscovered artists on their popular playlists.")
+  meta(property="og:url" content="https://www.crosshairmusic.com/influencers/")
+  meta(property="og:site_name" content="Crosshair Music")
+  meta(property="article:publisher" content="https://www.facebook.com/crosshairmusic/")
+  
+  //- SEO for socials
+  meta(name="twitter:card" content="summary")
+  meta(name="twitter:description" content="Crosshair music influencers find undiscovered music to hear and use in original content. They feature undiscovered artists on their popular playlists.")
+  meta(name="twitter:title" content="Crosshair Music - Find Undiscovered Music to Hear and Use")
+  meta(name="twitter:site" content="@crosshairmusic")
+  meta(name="twitter:creator" content="@crosshairmusic")
+  
+  // FAVICON / BROWSERCONFIG
+  link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
+  link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
+  link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
+  link(rel="manifest" href="/site.webmanifest")
+  link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5")
+  link(rel="shortcut icon" href="/favicon.ico")
+  meta(name="msapplication-TileColor" content="#da532c")
+  meta(name="msapplication-config" content="/browserconfig.xml")
+  meta(name="theme-color" content="#ffffff")
+  
+  // CSS
+  link(rel="stylesheet" href="/css/app.css")
+  
+  //- This file provides the default styling for the KeystoneJS Content Editor
+  if user && user.canAccessKeystone
+    link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+  
+  //- Font Awesome
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous")
+
+  //-  TIDIO (chat)
+  link(rel="canonical" href="http://code.tidio.co/b7uadeapo8mh0rnqfgxbykhewt39nrxe.js")
+  
+  //- SLICK
+  link(rel="stylesheet" href="/js/plugins/slick/slick.css")
+  link(rel="stylesheet" href="/js/plugins/slick/slick-theme.css")
+
+  if headcode
+    // CMS HEAD CODE (Tracking, GA, etc.)
+    each hc in headcode
+      !=hc.code
+  else
+    // No HeadCodes from CMS!

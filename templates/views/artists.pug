@@ -1,0 +1,399 @@
+extends ../layouts/default
+include ../mixins/contact-form
+
+block content
+	#artists
+		.hero
+			.hero-overlay
+				//- Wrap the h1 in the container, but the button has none.
+				.hero-text
+					h1 Streaming promotion made easy.
+				a.button.hero-button(href="http://my.crosshairmusic.com/client/signup") Create an Account
+				
+		//=============
+		// THE MISSION
+		//=============
+		.black-bg.tb-pad-90
+			.grid-container
+				.grid-x.align-center
+					.cell.medium-10.large-8
+						h2.text-center.nunito.upper The
+							| <span class="green">&nbsp;Mission</span>
+						hr.short.green
+						h3.normal.text-center.tb-pad-45 Affordably connect musicians directly to the playlist curators and social influencers who can help grow their audiences.
+		
+		//========================
+		// 'AS FEATURED IN' [CMS]
+		//========================
+		.white-bg.tb-pad-90
+			.grid-x.align-center
+				h2.caps.text-center As featured in:
+			#featureGridContainer.grid-x.align-center
+				#featureGrid
+					//- Loop featuredImages from CMS tool
+					each img in featuredImages
+						a(href=img.url target="_blank")
+							.feature-logo(style="background-image: url("+img.image.secure_url+")")
+
+		//==============
+		// PARALLAX CTA
+		//==============
+		#artistsParallax.parallax
+			.parallax-overlay
+				.grid-x.align-center
+					.cell.large-4.medium-6.small-8.text-center
+						h2.nunito.caps.no-marg Let's get started.
+						//- hr.green.short
+				.grid-x.align-center.tb-pad-30
+					.cell.large-6.medium-8.small-10
+							p Our influencers are listening.
+								br 
+								| Are you ready to be heard?
+							
+				//- Buttons here are full-width, so check your containers!
+				.grid-x.align-center
+					.cell.small-8.medium-4.large-3
+						p.no-marg.text-right
+							a.button.bigger.no-marg(href="http://my.crosshairmusic.com/client/signup") Create 
+								| <br class="hide-for-large"> Account </span>
+					.cell.medium-1.show-for-medium
+					.cell.small-8.medium-4.large-3
+						p.no-marg.text-left
+							a.button.bigger.no-marg(href="#theProcess") Learn 
+								| <br class="hide-for-large"> More </span>
+
+		//======================
+		// "THE PROCESS" INTRO
+		//======================
+		#theProcess.black-bg.tb-pad-90
+			.grid-container
+				.grid-x.align-center
+					.cell.medium-10.large-8
+						h2.text-center.nunito.upper The
+							| <span class="green">&nbsp;Process</span>
+						hr.short.green
+						h3.normal.text-center.tb-pad-45 Crosshair is a fast-track for artists who want to be heard. Learn about our process below, and how you can get your songs playlisted 
+							| <span class="green-underline">today</span>.
+					
+		//======================
+		// "THE PROCESS" SUBNAV
+		//======================
+		//- Loads out with step 1 being active. This will change throughout interaction w/ the page.
+		#steps
+			#theProcessSubnav.show-for-medium
+				ul.grid-x
+					li#step1Nav.cell.medium-3.active
+						| <span class="green"> 1.</span> Sign Up
+					li#step2Nav.cell.medium-3.active
+						| <span class="green"> 2.</span> Get Heard
+					li#step3Nav.cell.medium-3.active
+						| <span class="green"> 3.</span> Get Results
+					li#step4Nav.cell.medium-3.active
+						| <span class="green"> 4.</span> Get Discounts
+					
+			//======================
+			// 1) SIGN UP
+			//======================
+			#step1.parallax
+				.parallax-overlay
+					.grid-container
+						.grid-x.grid-padding-x.grid-margin-x.align-center
+							#step1part1.cell.medium-6.large-4
+								h2.match Sign Up
+									hr
+								p.b-pad-15 Select your genres to get matched with the best possible influencers. 
+								
+							#step1part2.cell.medium-6.large-4.large-offset-1
+								h2.match Match With Influencers
+									hr
+								p.b-pad-15 Based on your profile, you'll be automatically matched with your best-suited influencers.
+								
+						.grid-x.grid-padding-x.grid-margin-x.align-center
+							#step1part3.cell.medium-6.large-4.large-offset-1
+								h2.match Submit Songs
+									hr
+								p.b-pad-15 Upload your songs to our platform, and they'll be sent directly to your influencers.
+									
+							#step1part4.cell.medium-6.large-4.large-offset-1
+								h2.match Influencers Listen
+									hr
+								p.b-pad-15  Our influencers go to work and provide you with feedback. If they like the song, they'll playlist it!
+						
+			//======================
+			// 2) GET HEARD
+			//======================
+			#step2
+				.grid-x.grid-padding-x.align-center.rel
+					.cell.medium-10.large-8
+						.b-marg-60
+							h2.text-center Meet Our Influencers
+							hr.green.short
+							
+				.grid-x.grid-padding-x.align-center
+					.cell.small-3.medium-2.large-2
+						p.icon-container
+							i.fab.fa-5x.fa-spotify.show-for-medium
+							i.fab.fa-3x.fa-spotify.hide-for-medium
+					.cell.small-9.medium-8.large-4
+						p.tb-pad-30.show-for-medium Independent Spotify Playlisters
+						p.hide-for-medium Independent Spotify Playlisters
+								
+				.grid-x.grid-padding-x.align-center
+					.cell.small-3.medium-2.large-2
+						p.icon-container
+							i.fab.fa-5x.fa-instagram.show-for-medium
+							i.fab.fa-3x.fa-instagram.hide-for-medium
+					.cell.small-9.medium-8.large-4
+						p.tb-pad-30.show-for-medium Social Media Influencers
+						p.hide-for-medium Social Media Influencers
+								
+				.grid-x.grid-padding-x.align-center
+					.cell.small-3.medium-2.large-2
+						p.icon-container
+							i.fa.fa-5x.fa-headphones.show-for-medium
+							i.fa.fa-3x.fa-headphones.hide-for-medium
+					.cell.small-9.medium-8.large-4
+						p.tb-pad-30.show-for-medium Industry Tastemakers
+						p.hide-for-medium Industry Tastemakers
+						
+			//================
+			// 3) GET RESULTS
+			//================
+			#step3.white-bg.parallax
+				.grid-container
+					.grid-x.grid-padding-x.grid-margin-x.align-center.tb-pad-90
+					
+						//==============
+						// CASE STUDIES
+						//==============
+						.cell.small-10.medium-8
+							h1 Results
+							p.tb-pad-15.italic "Crosshair Music has helped me in getting my music out there - reaching a far greater number of listeners than I could have initially thought possible. As an independent artist, I know the true value of self-promotion and marketing, and the importance of using as many feasible tools in these avenues at my disposal. Crosshair fits perfectly with this mindset, because they are affordable, amenable, and open up a platform of accessibility between artist and listener!"
+							h6 - Fjøra, Artist
+					
+					//==========
+					// PROFILES
+					//==========
+					.grid-x.grid-padding-x.align-center.b-pad-60
+						.cell.small-1
+							p#artistPrev &larr;
+						.cell.large-6.medium-8.small-10
+							p.text-center#artistSliders
+								img(src="/images/artists/grace.png")
+								img(src="/images/artists/kady-z.png")
+								img(src="/images/artists/mike.png")
+								img(src="/images/artists/mitchell.png")
+								img(src="/images/artists/solarists.png")
+						.cell.small-1
+							p#artistNext &rarr;
+
+								
+			//======================
+			// 4) GET DISCOUNTS
+			//======================
+			#step4
+				.grid-x.grid-padding-x.align-center
+					//- each PACKAGE in data.PACKAGEs
+					.cell.medium-4.xlarge-3
+						.package(data-equalizer)
+							.grid-x
+								.cell.small-6.medium-12.large-6
+									h2 Single:
+								.cell.small-6.medium-12.large-6.text-right
+									h2.price $250
+							.grid-x.align-center.t-marg-15: .cell.small-12
+								ul
+									li One-Time Fee
+									li One Campaign
+									li Custom Promotion
+									li Influencer Feedback
+									li Campaign Support
+								.t-marg-30
+									p
+										a.button(href='http://my.crosshairmusic.com/client/signup') VIEW SINGLE 
+											| <span class="hide-for-medium-only">&nbsp;&rarr;</span>
+											
+					.cell.medium-4.xlarge-3
+						.package(data-equalizer)
+							.grid-x
+								.cell.small-6.medium-12.large-6
+									h2 Gold:
+								.cell.small-6.medium-12.large-6.text-right
+									h2.price $420
+							.grid-x.align-center.t-marg-15: .cell.small-12
+								ul 
+									li One-Time Fee
+									li Two Campaigns
+									li Individual Song Profiles
+									li Custom Promotion
+									li Influencer Feedback
+									li Campaign Support
+								.t-marg-30
+									p
+										a.button(href='http://my.crosshairmusic.com/client/signup') VIEW GOLD 
+											| <span class="hide-for-medium-only">&nbsp;&rarr;</span>
+					.cell.medium-4.xlarge-3
+						.package(data-equalizer)
+							.grid-x
+								.cell.small-6.medium-12.large-6
+									h2 Platinum:
+								.cell.small-6.medium-12.large-6.text-right
+									h2.price $630
+							.grid-x.align-center.t-marg-15: .cell.small-12
+								ul
+									li One-Time Fee
+									li Three Campaigns
+									li Individual Song Profiles
+									li Artist Profiles
+									li Custom Promotion 
+									li Influencer Feedback
+									li Campaign Support
+								.t-marg-30
+									p
+										a.button(href='http://my.crosshairmusic.com/client/signup') VIEW PLATINUM 
+											| <span class="hide-for-medium-only">&nbsp;&rarr;</span>
+
+
+		//===================
+		// ARTIST FAQs [CMS]
+		//===================
+		.black-bg.t-pad-90.b-pad-45
+			.grid-container
+				.grid-x.align-center
+					.cell.small-8.medium-7.large-5
+						h2.text-center.nunito Artist
+							| <span class="green">&nbsp;FAQs</span>
+						hr.short.green
+				.grid-x.align-center
+					.cell.medium-10.large-9
+						+faqs(faqs)
+				.tb-pad-15
+					+contact-form
+						
+						
+block footer_js
+	script.
+		$(function(){
+			//====================//
+			//  HELPER FUNCTIONS	//
+			//====================//
+			$.fn.isFullyInViewport = function(firstElement = 0) {	// Pass a 1 for first element on the page
+			
+				// Calc offset of both navs 
+				var elementTop = $(this).offset().top;
+				var elementBottom = elementTop + $(this).outerHeight();
+				var viewportTop = $(window).scrollTop();
+				var viewportBottom = viewportTop + $(window).height();
+				
+				if(firstElement == 1){	// Don't do nav offset for first page element
+					return elementTop < viewportBottom || elementBottom < viewportBottom;
+				}
+				else{	// Part of element is in view
+					var navOffset = 50 + 75;
+					elementTop = elementTop - navOffset;
+					return elementTop < viewportTop || elementBottom < viewportBottom;
+				}
+			};
+			
+			$.fn.isInViewpoint = function() {
+				var elementTop = $(this).offset().top;
+				var elementBottom = elementTop + $(this).outerHeight();
+				var viewportTop = $(window).scrollTop();
+				var viewportBottom = viewportTop + $(window).height();
+				
+				// Traditional return for when ANY PART of element is in view
+				return elementBottom > viewportTop && elementTop < viewportBottom;
+			};
+			
+			//====================//
+			//  RUN STICKY SUBNAV	//
+			//====================//
+			function runSubnav(){	// Hide and show "The Process" subnav if on-screen
+				if($("#steps").isInViewpoint()){
+					$("#theProcessSubnav").addClass("stuck");
+				}else{
+					$("#theProcessSubnav").removeClass("stuck");
+				}
+				
+				// Run Step 1
+				if($("#step1").isFullyInViewport(1)){
+					if(!$("#step1Nav").hasClass("active")){
+						$("#step1Nav").addClass("active");
+						$("#step2Nav").removeClass("active");	// Remove neighbor
+					}
+				}else if($("#step1Nav").hasClass("active")){
+					$("#step1Nav").removeClass("active");
+				}
+				
+				// Run Step 2
+				if($("#step2").isFullyInViewport()){
+					if(!$("#step2Nav").hasClass("active")){
+						$("#step2Nav").addClass("active");
+						$("#step1Nav").removeClass("active");	// Remove neighbors
+						$("#step3Nav").removeClass("active");
+					}
+				}else if($("#step2Nav").hasClass("active")){
+					$("#step2Nav").removeClass("active");
+				}
+				
+				// Run Step 3
+				if($("#step3").isFullyInViewport()){
+					if(!$("#step3Nav").hasClass("active")){
+						$("#step3Nav").addClass("active");
+						$("#step2Nav").removeClass("active");	// Remove neighbors
+						$("#step4Nav").removeClass("active");
+					}
+				}else if($("#step3Nav").hasClass("active")){
+					$("#step3Nav").removeClass("active");
+				}
+				
+				// Run Step 4
+				if($("#step4").isFullyInViewport()){
+					if(!$("#step4Nav").hasClass("active")){
+						$("#step4Nav").addClass("active");
+						$("#step3Nav").removeClass("active");	// Remove neighbor
+					}
+				}else if($("#step4Nav").hasClass("active")){
+					$("#step4Nav").removeClass("active");
+				}
+			}
+			
+			//===============//
+			// SLICK SLIDERS //
+			//===============//
+			$("#artistSliders").slick({
+				autoplay: true,
+				autoplaySpeed: 2500,
+				prevArrow: "#artistPrev",
+				nextArrow: "#artistNext",
+			});
+			
+			$("#featureGrid").slick({
+				autoplay: true,
+				autoplaySpeed: 1000,
+				nextArrow: "#featuredPrev",
+				nextArrow: "#featuredNext",
+				slidesToShow: 5,
+				slidesToScroll: 1,
+				responsive: [{	// Brekpoints (x down) change qty slides shown
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 4,
+					}
+				},{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+					}
+				},{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1,
+					}
+				}],
+			});
+			
+			$(window).on('resize scroll', function() {
+				runSubnav();
+			});
+		});

@@ -1,0 +1,906 @@
+html {
+	background-color: $black;
+	#body {
+		background-color: $black;
+		padding-top: 75px;
+	}
+}
+hr.lil {
+	border-bottom: 2px solid $green;
+	width: 150px;
+	margin: 30px auto 15px;
+}
+hr.medium {
+	max-width: 600px;
+	margin: 30px 0 15px;
+}
+
+h1.match,
+h2.match,
+h3.match {
+	display: inline-block;
+	hr {
+		border-bottom: 2px solid $green;
+		max-width: 100%;
+		margin: 15px 0 30px;
+	}
+}
+.button {
+	background-color: $trans-100;
+	border: 3px solid $green;
+	border-radius: 50px;
+	left: 0;
+	text-transform: uppercase;
+	font-weight: 600;
+	&:hover {
+		background-color: $green;
+	}
+}
+.button.alt {
+	color: $black;
+}
+.button.bigger {
+	font-size: 1.5rem;
+	padding: 1rem 1.25rem;
+}
+
+//=====================
+// GLOBAL HERO SECTION
+//=====================
+.hero {
+	background-position: center;
+	background-size: cover;
+	height: 90vh;
+	position: relative;
+	.hero-overlay {
+		background-color: $overlay-color;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+	}
+	.hero-text {
+		bottom: 30%;
+		margin: 0 0 0 50px;
+		max-width: 900px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		h1 {
+			color: #eee;
+			font-size: 5rem;
+			font-weight: 600;
+			line-height: 5rem;
+			margin-bottom: -500px;
+			@include breakpoint(small only) {
+				font-size: 2.5rem;
+				line-height: 2.5rem;
+			}
+			&.loaded {
+				margin-bottom: 0;
+				transition: margin 650ms ease-out;
+			}
+		}
+	}
+	.hero-button {
+		bottom: 15%;
+		position: absolute;
+		margin: 0 0 0 50px;
+	}
+}
+
+//=================
+// GLOBAL PARALLAX
+//=================
+.parallax {
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	perspective: 500px;
+	position: relative;
+	.parallax-overlay {
+		background: $trans-80-black;
+		width: 100%;
+	}
+}
+
+//===================
+// GLOBAL NAVIGATION
+//===================
+
+// NAV BURGER (OUTSIDE of id'd wrapper)
+img#navFlip {
+	cursor: pointer;
+	height: 75px;
+	margin: 0;
+	padding: 23px;
+	position: absolute;
+	right: 0px;
+	z-index: 10;
+	@include breakpoint(medium up) {
+		display: none;
+	}
+}
+nav#nav {
+	box-shadow: 0px 4px 20px 0px $overlay-color;
+	height: 75px;
+	background-color: #000;
+	position: fixed;
+	transition: all $transition-speed ease-in-out;
+	width: 100%;
+	z-index: 5;
+	@include breakpoint(small only) {
+		ul a {
+			display: none;
+		}
+		ul li {
+			font-size: 3rem;
+			line-height: 4rem;
+		}
+
+		&.in {
+			background-color: #000;
+			display: block;
+			height: 110vh;
+			// line-height: 4rem;
+			font-size: 3rem;
+			transition: all 250ms ease-in-out;
+			ul {
+				margin-left: 15px;
+			}
+			a {
+				display: block;
+			}
+		}
+		#navClip1,
+		#navClip2,
+		#navClip3 {
+			display: none;
+			transition: all 300ms ease-in-out;
+		}
+	}
+	// Logo
+	img#navLogo {
+		transition: all $transition-speed ease-in-out;
+		height: 75px;
+		width: 74px;
+		padding: 15px 13px 12px;
+	}
+
+	// Main Nav Items
+	ul {
+		display: inline-block;
+		margin: 0 0 0 75px;
+		transition: margin $transition-speed ease-in-out;
+		a,
+		li {
+			color: $green;
+			&:hover {
+				color: #eee;
+				transition: color 350ms;
+			}
+		}
+		li {
+			box-sizing: border-box;
+			cursor: pointer;
+			display: inline-block;
+			font-family: $nunito;
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 800;
+			letter-spacing: 0.77px;
+			line-height: 75px;
+			list-style-image: none;
+			list-style-position: outside;
+			list-style-type: none;
+			margin: 0 8px;
+			padding: 0;
+			text-align: center;
+			text-transform: uppercase;
+			transition: all $transition-speed ease-in-out;
+		}
+	}
+	// First Clip Path
+	#navClip1 {
+		background-color: $trans-70-white;
+		clip-path: polygon(0 0, 58% 0, 100% 100%, 0 100%);
+		height: 100%;
+		position: absolute;
+		transition: all 500ms ease-in-out;
+		width: 94px;
+		z-index: -100;
+	}
+	// Second Clip Path
+	#navClip2 {
+		background-color: $trans-50-white;
+		clip-path: polygon(0 0, 63% 0, 100% 100%, 0 100%);
+		height: 100%;
+		position: absolute;
+		transition: all 600ms ease-in-out;
+		width: 109px;
+		z-index: -100;
+	}
+	// Third Clip Path
+	#navClip3 {
+		background-color: $trans-30-white;
+		clip-path: polygon(0 0, 68% 0, 100% 100%, 0 100%);
+		height: 100%;
+		position: absolute;
+		transition: all 700ms ease-in-out;
+		width: 124px;
+		z-index: -100;
+	}
+	.login-dropdown {
+		background-color: $black;
+		display: none;
+		margin-left: -15px;
+		padding: 5px 15px 12px;
+		position: absolute;
+		text-align: left;
+		top: 75px;
+		@include breakpoint(small only) {
+			bottom: 0;
+		}
+	}
+}
+
+//=================
+// GLOBAL SLIM NAV
+//=================
+nav#nav.slim {
+	height: 50px;
+	transition: height $transition-speed ease-in-out;
+
+	img#navLogo {
+		// Logo compresses
+		height: 50px;
+		width: 50px;
+		padding: 10px 9px 8px;
+		transition: all $transition-speed ease-in-out;
+	}
+
+	ul {
+		// List margin adjusted
+		margin: 0 0 0 100px;
+		transition: all $transition-speed ease-in-out;
+		li {
+			font-size: 15px;
+			line-height: 50px;
+			transition: all $transition-speed ease-in-out;
+		}
+	}
+	#navClip1 {
+		width: 0px;
+		transition: width 500ms ease-in-out;
+	}
+	#navClip2 {
+		width: 0px;
+		transition: width 750ms ease-in-out;
+	}
+	#navClip3 {
+		width: 0px;
+		transition: width 1000ms ease-in-out;
+	}
+	.login-dropdown {
+		// Adjust so it ain't floating
+		top: 50px;
+	}
+}
+
+//==============
+// GLOBAL FAQs
+//==============
+#faqs {
+	padding: 30px 0;
+	a:not(.accordion-title) {
+		color: $white;
+		text-decoration: underline;
+		transition: color 150ms;
+	}
+	a:hover,
+	a:focus {
+		color: $green;
+		transition: color 100ms;
+	}
+	.accordion-title {
+		padding: 1.25rem 3rem 1.25rem 1rem;
+		@include breakpoint(medium up) {
+			font-size: 1.25rem;
+			max-width: 92vw;
+		}
+	}
+	.accordion-title::before {
+		font-size: 1.75rem;
+		margin-top: -13px;
+	}
+}
+
+//=====================
+// GLOBAL CONTACT FORM
+//=====================
+#contact-form,
+#influencer-registration {
+	background-color: $black;
+	color: $white;
+	padding: 60px 0 15px;
+	text-align: center;
+	form {
+		margin-top: 30px;
+	}
+	hr {
+		border-color: $green;
+		border-width: 2px;
+		max-width: 200px;
+		margin: 30px auto 0;
+	}
+	input:not(.button),
+	textarea {
+		border-width: 2px;
+		border-radius: 4px;
+		color: $white;
+		background-color: $black;
+		&:active,
+		&:focus {
+			box-shadow: 0 0 5px #7a7a7a;
+			border-color: $trans-90-white;
+			border-radius: 5px;
+		}
+		&::placeholder {
+			color: $trans-90-white;
+		}
+	}
+	.button {
+		border-width: 2px;
+		padding: 15px 30px;
+	}
+	label {
+		color: $white;
+		// text-align: left;
+	}
+}
+
+#influencer-registration {
+	text-align: left;
+	#mc-embedded-subscribe {
+		margin-top: 30px;
+	}
+	.indicates-required {
+		font-size: 12px;
+		margin-bottom: 15px;
+		margin-top: 30px;
+	}
+}
+
+//==========
+// HOMEPAGE
+//==========
+#home {
+	#buttonRow {
+		padding-top: 45vh;
+	}
+	.hero {
+		background-image: url("/images/home/hero.jpg");
+		.button {
+			color: $green;
+			font-family: "Nunito", sans-serif;
+			font-size: 2rem;
+			font-weight: 600;
+			padding: 15px 30px;
+			transition: all $transition-speed ease-in-out;
+			width: 80%;
+			&:hover {
+				background-color: $trans-100;
+				border-color: $white;
+				border-radius: 0;
+				color: $white;
+			}
+			@include breakpoint(medium only) {
+				font-size: 1.85rem;
+			}
+		}
+	}
+}
+
+//==============
+// ARTISTS PAGE
+//==============
+#artists {
+	.hero {
+		background-image: url("/images/artists/dj.jpg");
+	}
+
+	// AS FEATURED IN
+	#featureGridContainer {
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+	}
+	#featureGrid {
+		box-sizing: content-box; /* So the width will be 100% + 17px */
+		height: 100%;
+		margin: 0 0 -17px;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		padding: 0;
+		white-space: nowrap;
+	}
+	.feature-logo {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		height: 50px;
+		margin: 40px 50px;
+		@include breakpoint(medium only) {
+			margin: 40px 25px;
+		}
+	}
+
+	// PARALLAX CTA
+	#artistsParallax {
+		background-image: url("/images/unsplash/listening.jpg");
+		background-position: center top;
+		color: $light-gray;
+		overflow-x: hidden;
+		overflow-y: auto;
+		perspective: 1px;
+		p {
+			font-size: 1.3rem;
+			text-align: center;
+			text-shadow: $para-shadow;
+		}
+		.parallax-overlay {
+			padding: 90px 0;
+			@include breakpoint(small only) {
+				padding: 90px 15px;
+			}
+		}
+		.bigger {
+			width: 100%;
+		}
+	}
+
+	// THE PROCESS SUBNAV
+	$subnav-height: 75px;
+	#theProcessSubnav {
+		background-color: $black;
+		color: $dark-gray;
+		height: $subnav-height;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		width: 100%;
+		top: 50px;
+		z-index: 4;
+		&.stuck {
+			position: sticky;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			li {
+				display: inline-block;
+				font-family: $nunito;
+				font-size: 1.5rem;
+				font-weight: 600;
+				height: $subnav-height;
+				line-height: $subnav-height;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				transition: color 100ms ease-in-out;
+				&:nth-of-type(1) {
+					background-color: $trans-30-white;
+				}
+				&:nth-of-type(2) {
+					background-color: $trans-20-white;
+				}
+				&:nth-of-type(3) {
+					background-color: $trans-10-white;
+				}
+				&:nth-of-type(4) {
+					background-color: $trans-100;
+				}
+				&.active {
+					color: $white;
+					border-bottom: 3px solid $green;
+					transition: color 100ms ease-in-out;
+				}
+				&:not(.active) {
+					.green {
+						color: $dark-gray;
+					}
+				}
+				@include breakpoint(medium only) {
+					padding: 0;
+					font-size: 1.25rem;
+				}
+			}
+		}
+	}
+
+	//===================
+	// THE PROCESS STEPS
+	//===================
+	#step1 {
+		background-image: url("/images/unsplash/bw-studio.jpg");
+		background-position: center top;
+		color: $white;
+		overflow-x: hidden;
+		overflow-y: auto;
+		perspective: 1px;
+
+		@include breakpoint(small only) {
+			hr {
+				max-width: 250px;
+			}
+			p {
+				text-align: center;
+			}
+			#step1part1 {
+				padding-top: 45px;
+			}
+			#step1part4 {
+				padding-bottom: 45px;
+			}
+			#step1part1,
+			#step1part2,
+			#step1part3,
+			#step1part4 {
+				padding-bottom: 30px;
+				p {
+					text-align: left;
+				}
+			}
+		}
+		@include breakpoint(medium up) {
+			p {
+				font-size: 20px;
+			}
+			#step1part1 {
+				padding: 90px 0 0;
+			}
+			#step1part2 {
+				padding: 140px 0 0;
+			}
+			#step1part3 {
+				padding: 0 0 180px;
+			}
+			#step1part4 {
+				padding: 90px 0;
+			}
+		}
+		@include breakpoint(large up) {
+			p {
+				font-size: 24px;
+			}
+		}
+	}
+
+	#step2 {
+		background-image: url("/images/unsplash/crowd.jpg");
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: $white;
+		padding: 90px 0 180px;
+		@include breakpoint(medium only) {
+			padding-bottom: 240px;
+		}
+		@include breakpoint(large up) {
+			padding-bottom: 400px;
+		}
+		p {
+			line-height: 40px;
+			margin: 0;
+			text-align: center;
+			@include breakpoint(medium up) {
+				font-size: 20px;
+			}
+		}
+		p.icon-container {
+			padding-bottom: 45px;
+		}
+	}
+
+	#step3 {
+		.italic {
+			text-emphasis: emp;
+		}
+
+		#prevArrow,
+		#nextArrow {
+			cursor: pointer;
+			height: 100%;
+			line-height: 100%;
+			font-size: 20px;
+		}
+	}
+
+	#step4 {
+		padding: 15px 0;
+		@include breakpoint(medium up) {
+			padding: 45px 0 30px;
+		}
+		.price {
+			color: $black;
+			display: block;
+			font-family: nunito;
+			text-align: right; // Only modified for medium
+			text-decoration: underline;
+			text-decoration-color: $green;
+			text-shadow: -2px 2px 3px $trans-30-black;
+			text-underline-position: under;
+		}
+		.package {
+			background-color: $white;
+			border-radius: 15px;
+			color: $white;
+			color: $black;
+			padding: 15px 30px 0;
+			margin: 15px;
+			@include breakpoint(medium only) {
+				max-width: 400px;
+				margin: 5px auto;
+				padding: 15px 15px 0 20px;
+				h2 {
+					font-size: 28px;
+					margin: 0;
+					text-align: left;
+				}
+			}
+			@include breakpoint(large only) {
+				margin: 15px auto;
+				h2 {
+					font-size: 32px;
+					line-height: 60px;
+					margin: 0px;
+					&.price {
+						font-size: 36px;
+					}
+				}
+			}
+			@include breakpoint(xlarge up) {
+				margin: 0px auto;
+				max-width: 500px;
+				h2 {
+					font-size: 36px;
+					line-height: 60px;
+					&.price {
+						font-size: 44px;
+					}
+				}
+			}
+			.post-content {
+				margin: 30px 0;
+			}
+		}
+		.button {
+			color: $black;
+			margin-bottom: 30px;
+		}
+	}
+} // end #artists
+
+//==================
+// INFLUENCERS PAGE
+//==================
+#influencers {
+	.hero {
+		// BIG COOL MAIN HERO
+		background-image: url("/images/influencers/sick-studio.jpg");
+	}
+	#influencersParallax {
+		background-image: url("/images/unsplash/console.jpg");
+		background-position: center top;
+		color: $light-gray;
+		overflow-x: hidden;
+		overflow-y: auto;
+		perspective: 1px;
+		p {
+			text-shadow: $para-shadow;
+		}
+		.parallax-overlay {
+			padding: 120px 0;
+			@include breakpoint(small only) {
+				padding: 120px 15px;
+			}
+		}
+	}
+	#influencerVideoBG {
+		background-image: url("/images/unsplash/computers.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		filter: blur(2px);
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		@include breakpoint(small only) {
+			height: 450px;
+		}
+	}
+	#influencerVideo {
+		background-size: cover;
+		height: 100%;
+	}
+}
+
+//======
+// BLOG
+//======
+#blog {
+	.hero {
+		background-image: url("/images/unsplash/bugera-crop.jpg");
+		background-position: center top;
+		height: 300px;
+		.hero-text {
+			bottom: 105px;
+			left: 30px;
+		}
+	}
+	.hero-text h1.loaded {
+		margin-bottom: 15px;
+	}
+}
+#blog,
+.post {
+	.button {
+		color: $black;
+		&:hover {
+			color: $white;
+		}
+	}
+}
+
+.post-preview {
+	background-color: $black;
+	border-radius: 20px;
+	margin-bottom: 30px;
+
+	@include breakpoint(small only) {
+		margin: 15px 0 15px;
+	}
+
+	.preview-header {
+		background-image: url("/images/unsplash/bugera-crop.jpg");
+		background-size: cover;
+		border-radius: 15px 15px 0 0;
+		height: 300px;
+	}
+
+	.preview-text {
+		border-radius: 0 0 15px 15px;
+		color: $white;
+		color: #fefefe;
+		padding: 15px 30px;
+		h2 a {
+			color: $white;
+			transition: color 250ms ease-in-out;
+			&:hover {
+				color: $green;
+				transition: color 250ms ease-in-out;
+			}
+		}
+		.posted {
+			color: $dark-gray;
+		}
+		.post-content {
+			margin: 30px 0;
+		}
+	}
+}
+
+//===============
+// GLOBAL FOOTER
+//===============
+$bottom_height: 40px;
+$bottom_marg: 15px;
+#footer {
+	background-color: $black;
+	color: $light-gray;
+	padding: 45px $bottom_marg $bottom_marg;
+	@include breakpoint(large up) {
+		padding-top: 90px;
+	}
+	a:not(.button) {
+		color: $green;
+		font-family: "Poppins";
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	a.social-icon {
+		color: $light-gray;
+		margin-right: 15px;
+		transition: color 100ms ease-in-out;
+		&:hover {
+			transition: color 100ms ease-in-out;
+			color: $green;
+		}
+	}
+	h4 {
+		color: $green;
+		color: $light-gray;
+		@include breakpoint(medium down) {
+			margin-top: 30px;
+		}
+	}
+	hr {
+		border-bottom: 2px solid $green;
+		height: 2px;
+		margin: 20px 0 30px;
+	}
+	// Each line has a custom width
+	#hr-1 {
+		max-width: 125px;
+	}
+	#hr-2 {
+		max-width: 134px;
+	}
+	#hr-3 {
+		max-width: 175px;
+	}
+	#hr-4 {
+		max-width: 240px;
+	}
+	i.fa-facebook {
+		margin-right: 4px;
+	}
+	p {
+		font-family: "Poppins";
+		font-size: 0.95rem;
+		margin-bottom: 30px;
+		@include breakpoint(large up) {
+			padding-right: 2vw;
+		}
+	}
+	#border {
+		background-color: $light-gray;
+		height: 2px;
+		margin: 20px 0;
+		opacity: 0.25;
+		@include breakpoint(large up) {
+			margin-top: 45px;
+		}
+	}
+	#bottom {
+		height: $bottom_height;
+		position: relative;
+		p,
+		img {
+			bottom: 0;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+		}
+		img {
+			left: 0;
+			height: $bottom_height;
+		}
+		p {
+			line-height: $bottom_height;
+			right: 0;
+		}
+	}
+	#contact {
+		p {
+			margin-bottom: 0.5rem;
+		}
+		@include breakpoint(large only) {
+			a:not(.button) {
+				font-size: 0.9rem;
+			}
+		}
+	}
+	#socials {
+		margin-top: 30px;
+	}
+	.button {
+		border-width: 2px;
+		font-size: 0.9rem;
+	}
+	.footercell {
+		padding: 10px;
+	}
+}

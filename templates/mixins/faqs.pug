@@ -1,0 +1,13 @@
+mixin faqs
+  #faqs
+    ul.accordion(data-accordion data-allow-all-closed="true")
+    
+      if faqs
+        //- Foreach FAQs as FAQ
+        each faq in faqs
+          li.accordion-item(data-accordion-item)
+            a.accordion-title(href="#")=faq.question
+            .accordion-content(data-tab-content)
+              !=faq.answer
+              hr.lil
+      else

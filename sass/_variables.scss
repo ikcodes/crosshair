@@ -1,0 +1,119 @@
+// CLIP PATH
+$clip: polygon(0 0, 35% 0, 100% 100%, 0 100%);
+
+// COLORS
+$green: #2abe41;
+$black: #0a0a0a;
+$almost-black: rgba(8, 6, 6, 0.08);
+$overlay-color: rgba(0, 0, 0, 0.5);
+$faq-overlay: rgba(50, 50, 50, 0.8);
+$para-shadow: -1px 1px px rgba(180, 180, 180, 0.3);
+
+$percent: 10%;
+$green-trans: lighten($green, $percent);
+$green-darker: darken($green, $percent);
+
+//========>  FONTS  <========//
+
+$poppins: "Poppins", "Helvetica", sans-serif;
+$nunito: "Nunito", "Georgia", serif;
+// I think Foundation uses these
+$heading-font: "Poppins";
+$body-font: "Poppins";
+
+@font-face {
+	font-family: "Nunito";
+	font-style: normal;
+	font-weight: 700;
+	src: url("/fonts/NunitoSans-Bold.ttf");
+}
+@font-face {
+	font-family: "Nunito";
+	font-style: italic;
+	font-weight: 700;
+	src: url("/fonts/NunitoSans-BoldItalic.ttf");
+}
+@font-face {
+	font-family: "Nunito";
+	font-style: normal;
+	font-weight: 800;
+	src: url("/fonts/NunitoSans-ExtraBold.ttf");
+}
+@font-face {
+	font-family: "Nunito";
+	font-style: italic;
+	font-weight: 800;
+	src: url("/fonts/NunitoSans-ExtraBoldItalic.ttf");
+}
+@font-face {
+	font-family: "Nunito";
+	font-style: italic;
+	font-weight: 400;
+	src: url("/fonts/NunitoSans-Italic.ttf");
+}
+@font-face {
+	font-family: "Nunito";
+	font-style: normal;
+	font-weight: 400;
+	src: url("/fonts/NunitoSans-Regular.ttf");
+}
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 800;
+	src: url("/fonts/Poppins-Bold.ttf");
+}
+@font-face {
+	font-family: "Poppins";
+	font-style: italic;
+	font-weight: 800;
+	src: url("/fonts/Poppins-BoldItalic.ttf");
+}
+@font-face {
+	font-family: "Poppins";
+	font-style: italic;
+	font-weight: 400;
+	src: url("/fonts/Poppins-Italic.ttf");
+}
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 400;
+	src: url("/fonts/Poppins-Regular.ttf");
+}
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 600;
+	src: url("/fonts/Poppins-SemiBold.ttf");
+}
+@font-face {
+	font-family: "Poppins";
+	font-style: italic;
+	font-weight: 600;
+	src: url("/fonts/Poppins-SemiBoldItalic.ttf");
+}
+
+$trans-10-white: rgba(255, 255, 255, 0.1);
+$trans-20-white: rgba(255, 255, 255, 0.2);
+$trans-30-white: rgba(255, 255, 255, 0.3);
+$trans-40-white: rgba(255, 255, 255, 0.4);
+$trans-50-white: rgba(255, 255, 255, 0.5);
+$trans-60-white: rgba(255, 255, 255, 0.6);
+$trans-70-white: rgba(255, 255, 255, 0.7);
+$trans-80-white: rgba(255, 255, 255, 0.8);
+$trans-90-white: rgba(255, 255, 255, 0.9);
+$trans-10-black: rgba(0, 0, 0, 0.1);
+$trans-20-black: rgba(0, 0, 0, 0.2);
+$trans-30-black: rgba(0, 0, 0, 0.3);
+$trans-40-black: rgba(0, 0, 0, 0.4);
+$trans-50-black: rgba(0, 0, 0, 0.5);
+$trans-60-black: rgba(0, 0, 0, 0.6);
+$trans-70-black: rgba(0, 0, 0, 0.7);
+$trans-80-black: rgba(0, 0, 0, 0.8);
+$trans-90-black: rgba(0, 0, 0, 0.9);
+$trans-100: rgba(0, 0, 0, 0);
+
+// Quick set transition speeds for nav
+$transition-speed: 500ms;
+$transition-speed-fast: calc($transition-speed / 2);
